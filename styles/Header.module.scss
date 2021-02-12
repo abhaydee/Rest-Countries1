@@ -1,6 +1,15 @@
 .header{
     width: 100%;
-    height: 6.25rem;
-    background-color:black;
+    height: 5.25rem;
+    background-color:hsl(0, 0%, 98%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'NunitoSans Regular', serif !important;
 }
+
+
+@font-face {
+    font-family: 'NunitoSans Regular';
+    src: local('NunitoSans Regular'), url("../fonts/NunitoSans-Regular.ttf") format('truetype');
+  }

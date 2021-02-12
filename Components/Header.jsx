@@ -3,7 +3,7 @@ import styles from  "../styles/Header.module.scss"
 function Header() {
     return (
         <div className={styles["header"]}>
-            Where in the World?
+           <h3 className={styles["header__title"]}>Where in the world?</h3>
         </div>
     )
 }
