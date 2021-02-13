@@ -15,6 +15,7 @@ function Countries({ countries }) {
               <b>{country.name}</b>
             </h4>
             <p>{country.capital}</p>
+            <p>{country.region}</p>
           </div>
         </div>
       ))}
