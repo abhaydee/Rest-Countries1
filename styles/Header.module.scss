@@ -12,7 +12,17 @@
     padding-top: 0.5rem;
   }
   &__themetitle{
-      
+    font-size: 1.17em;
+  }
+  &__themesection{
+     display: inline-flex; 
+     padding-top: 0.5rem;
+     padding-right: 2rem;
+
+  }
+  &__theme-image{
+    padding-top: 1rem;
+    padding-right: 0.75rem;
   }
 }
 
