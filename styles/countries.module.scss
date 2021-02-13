@@ -1,5 +1,6 @@
 .countries {
   display: flex;
+  font-family: "NunitoSans Regular";
   flex-direction: column;
   margin-inline: 1rem;
   margin-top: 2rem;
@@ -7,10 +8,26 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 100%;
+    margin-bottom: 2rem;
   }
   &__image{
       width: 100%;
       height: 15.75rem;
+  }
+  &__container{
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      align-items: left;
+      padding-left: 1rem;
+  }
+  &__container >h3{
+      margin: 0;
+  }
+  &__container >p{
+      margin:0;
+      padding-top: 0.5rem;
+      padding-bottom: 0.25rem;
   }
 }
 @media screen and (min-width: 768px) {

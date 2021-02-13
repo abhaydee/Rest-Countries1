@@ -14,5 +14,11 @@ body{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        font-family: "NunitoSans Regular"
     }
 }
+@font-face {
+    font-family: "NunitoSans Regular";
+    src: local("NunitoSans Regular"),
+      url("../fonts/NunitoSans-Regular.ttf") format("truetype");
+  }

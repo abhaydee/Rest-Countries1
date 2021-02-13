@@ -10,12 +10,13 @@ function Countries({ countries }) {
             className={styles["countries__image"]}
             src={country.flag}
           />
-          <div class="container">
-            <h4>
+          <div className={styles["countries__container"]}>
+            <h3>
               <b>{country.name}</b>
-            </h4>
-            <p>{country.capital}</p>
-            <p>{country.region}</p>
+            </h3>
+            <p>{`Population: ${country.population}`}</p>
+            <p>{`Capital: ${country.capital}`}</p>
+            <p>{`Country: ${country.region}`}</p>
           </div>
         </div>
       ))}
