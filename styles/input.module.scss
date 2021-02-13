@@ -1,6 +1,4 @@
 .input {
-  margin-left: 4rem;
-  margin-top: 2rem;
   width: 100%;
   padding: 12px 20px;
   display: inline-block;
@@ -12,5 +10,7 @@
 @media screen and (min-width:768px){
     .input{
         width: 20rem;
+        margin-left: 4rem;
+        margin-top: 2rem;
     }
 }

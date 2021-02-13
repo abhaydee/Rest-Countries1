@@ -1,0 +1,16 @@
+.country {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width:768px){
+    .country{
+        width: 15rem;
+        margin-right: 4rem;
+        margin-top: 2rem;
+    }
+}
