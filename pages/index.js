@@ -4,6 +4,7 @@ import Header from "../Components/Header";
 import InputContainer from "../Components/InputContainer";
 import DropdownContainer from "../Components/DropdownContainer";
 import {getCountries} from "../services/apiservice"
+import Countries from "../Components/Countries";
 function Home({countries}) {
     console.log("the countries",countries)
   return (
@@ -16,6 +17,7 @@ function Home({countries}) {
         <InputContainer />
         <DropdownContainer />
       </div>
+      <Countries countries={countries}/>
     </div>
   );
 }
