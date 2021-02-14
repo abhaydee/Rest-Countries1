@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import styles from "../styles/Header.module.scss";
 import IconMoon from "../images/moon.svg";
 import IconSun from "../images/brightness.svg";
+import { StateProviderValue } from "../services/StateProvider";
 function Header() {
-  const [theme, setTheme] = useState(true);
+  const [{theme},dispatch]=StateProviderValue();
+  const [themes, setTheme] = useState(true);
   const handleTheme = () => {
-    setTheme(!theme);
+    setTheme(!themes);
+    dispatch({
+      type:"SET_THEME",
+      payload:themes
+    })
   };
   return (
-    <div className={`${styles["header"]} ${theme===false?  styles["header__dark"] :styles["header__light"]}`}>
+    <div className={`${styles["header"]} ${themes===false?  styles["header__dark"] :styles["header__light"]}`}>
       <h3 className={styles["header__title"]}>Where in the world?</h3>
       <span className={styles["header__themesection"]}>
         <img
-          src={theme === true ? IconMoon : IconSun}
+          src={themes === true ? IconMoon : IconSun}
           alt="theme-icon"
           className={styles["header__theme-image"]}
           width={30}
@@ -20,7 +26,7 @@ function Header() {
           onClick={handleTheme}
         />
         <p className={styles["header__themetitle"]}>
-          {theme === true ? "Dark Mode" : "Light Mode"}
+          {themes === true ? "Dark Mode" : "Light Mode"}
         </p>
       </span>
     </div>

@@ -3,12 +3,14 @@ import Head from "next/head";
 import Header from "../Components/Header";
 import InputContainer from "../Components/InputContainer";
 import DropdownContainer from "../Components/DropdownContainer";
-import {getCountries} from "../services/apiservice"
+import { getCountries } from "../services/apiservice";
+import { StateProvider } from "../services/StateProvider";
+import { initialState, countriesReducer } from "../services/reducer";
 import Countries from "../Components/Countries";
-function Home({countries}) {
-    console.log("the countries",countries)
+function Home({ countries }) {
+  console.log("the countries", countries);
   return (
-    <div>
+    <StateProvider initialState={initialState} reducer={countriesReducer}>
       <Head>
         <title>Rest-Countries</title>
       </Head>
@@ -17,17 +19,17 @@ function Home({countries}) {
         <InputContainer />
         <DropdownContainer />
       </div>
-      <Countries countries={countries}/>
-    </div>
+      <Countries countries={countries} />
+    </StateProvider>
   );
 }
 
- export  async function getServerSideProps(){
-    const countries=await getCountries("https://restcountries.eu/rest/v2/all")
-    return {
-        props:{
-            countries
-        }
-    }
+export async function getServerSideProps() {
+  const countries = await getCountries("https://restcountries.eu/rest/v2/all");
+  return {
+    props: {
+      countries,
+    },
+  };
 }
 export default Home;
