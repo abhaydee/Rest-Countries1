@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Head from "next/head";
 import Header from "../Components/Header";
 import InputContainer from "../Components/InputContainer";
@@ -8,7 +8,7 @@ import Countries from "../Components/Countries";
 import styles from "../styles/Home.module.scss";
 import { useSelector } from "react-redux";
 function Home({ countries }) {
-  const theme=useSelector((state)=>state.countriesReducer.theme)
+  let theme=useSelector((state)=>state.countriesReducer.theme);
   console.log("the theme index",theme)
   return (
     <>

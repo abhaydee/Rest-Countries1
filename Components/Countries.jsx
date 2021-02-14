@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styles from "../styles/countries.module.scss";
 function Countries({ countries }) {
-  const theme=useSelector((state)=>state.countriesReducer.theme)
   return (
     <div className={`${styles["countries"]}`}>
       {countries?.map((country, index) => (

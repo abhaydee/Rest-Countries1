@@ -4,7 +4,7 @@ export const initialState = {
 
 export const countriesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SET__THEME":
+    case "THEME":
       return {
         ...state,
         theme: action.payload,

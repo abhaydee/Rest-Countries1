@@ -11,10 +11,10 @@ function Header() {
   };
   useEffect(() => {
     dispatch({
-      type: "SET_THEME",
+      type: "THEME",
       payload: theme,
     });
-  }, [theme]);
+  }, [theme,dispatch]);
   return (
     <div
       className={`${styles["header"]} ${
