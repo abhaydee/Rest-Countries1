@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Header.module.scss";
 import IconMoon from "../images/moon.svg";
 import IconSun from "../images/brightness.svg";
 import { useDispatch } from "react-redux";
 function Header() {
   const [theme, setTheme] = useState(true);
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const handleTheme = () => {
     setTheme(!theme);
-    dispatch({
-      type:"SET_THEME",
-      payload:theme
-    })
   };
+  useEffect(() => {
+    dispatch({
+      type: "SET_THEME",
+      payload: theme,
+    });
+  }, [theme]);
   return (
-    <div className={`${styles["header"]} ${theme===false?  styles["header__dark"] :styles["header__light"]}`}>
+    <div
+      className={`${styles["header"]} ${
+        theme === false ? styles["header__dark"] : styles["header__light"]
+      }`}
+    >
       <h3 className={styles["header__title"]}>Where in the world?</h3>
       <span className={styles["header__themesection"]}>
         <img

@@ -9,6 +9,7 @@ import styles from "../styles/Home.module.scss";
 import { useSelector } from "react-redux";
 function Home({ countries }) {
   const theme=useSelector((state)=>state.countriesReducer.theme)
+  console.log("the theme index",theme)
   return (
     <>
       <Head>
