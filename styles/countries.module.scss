@@ -31,6 +31,14 @@
       padding-top: 0.5rem;
       padding-bottom: 0.25rem;
   }
+  &__light{
+    background-color: white;
+    color: black;
+  }
+  &__dark{
+    background-color: hsl(207, 26%, 17%);
+    color: white;
+  }
 }
 @media screen and (min-width: 768px) {
   .countries {

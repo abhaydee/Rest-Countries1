@@ -4,23 +4,29 @@ import Header from "../Components/Header";
 import InputContainer from "../Components/InputContainer";
 import DropdownContainer from "../Components/DropdownContainer";
 import { getCountries } from "../services/apiservice";
-import { StateProvider } from "../services/StateProvider";
-import { initialState, countriesReducer } from "../services/reducer";
 import Countries from "../Components/Countries";
+import styles from "../styles/Home.module.scss";
+import { useSelector } from "react-redux";
 function Home({ countries }) {
-  console.log("the countries", countries);
+  const theme=useSelector((state)=>state.countriesReducer.theme)
   return (
-    <StateProvider initialState={initialState} reducer={countriesReducer}>
+    <>
       <Head>
         <title>Rest-Countries</title>
       </Head>
-      <Header />
-      <div className="input-parent">
-        <InputContainer />
-        <DropdownContainer />
+      <div
+        className={
+          theme === true ? styles["theme-light"] : styles["theme-dark"]
+        }
+      >
+        <Header />
+        <div className="input-parent">
+          <InputContainer />
+          <DropdownContainer />
+        </div>
+        <Countries countries={countries} />
       </div>
-      <Countries countries={countries} />
-    </StateProvider>
+    </>
   );
 }
 
