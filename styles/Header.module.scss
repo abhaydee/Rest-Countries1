@@ -1,7 +1,6 @@
 .header {
   width: 100%;
   height: 5.25rem;
-  background-color: hsl(0, 0%, 98%);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
@@ -11,18 +10,25 @@
     padding-left: 1rem;
     padding-top: 0.5rem;
   }
-  &__themetitle{
+  &__themetitle {
     font-size: 1.17em;
   }
-  &__themesection{
-     display: inline-flex; 
-     padding-top: 0.5rem;
-     padding-right: 2rem;
-
+  &__themesection {
+    display: inline-flex;
+    padding-top: 0.5rem;
+    padding-right: 2rem;
   }
-  &__theme-image{
+  &__theme-image {
     padding-top: 1rem;
     padding-right: 0.75rem;
+  }
+  &__dark {
+    background-color: hsl(207, 26%, 17%);
+    color: whitesmoke;
+  }
+  &__light {
+    background-color: hsl(0, 0%, 98%);
+    color: black;
   }
 }
 
@@ -32,13 +38,13 @@
     url("../fonts/NunitoSans-Regular.ttf") format("truetype");
 }
 
-@media screen and (min-width:768px){
-    .header{
-        &__title{
-            padding-left: 4rem;
-        }
-        &__themesection{
-            padding-right: 4rem;
-        }
+@media screen and (min-width: 768px) {
+  .header {
+    &__title {
+      padding-left: 4rem;
     }
+    &__themesection {
+      padding-right: 4rem;
+    }
+  }
 }

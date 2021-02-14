@@ -8,7 +8,7 @@ function Header() {
     setTheme(!theme);
   };
   return (
-    <div className={styles["header"]}>
+    <div className={`${styles["header"]} ${theme===false?  styles["header__dark"] :styles["header__light"]}`}>
       <h3 className={styles["header__title"]}>Where in the world?</h3>
       <span className={styles["header__themesection"]}>
         <img
