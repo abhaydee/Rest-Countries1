@@ -14,7 +14,7 @@ function Header() {
       type: "THEME",
       payload: theme,
     });
-  }, [theme,dispatch]);
+  }, [theme, dispatch]);
   return (
     <div
       className={`${styles["header"]} ${
