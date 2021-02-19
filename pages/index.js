@@ -9,7 +9,7 @@ import styles from "../styles/Home.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 function Home() {
   const [countries, setCountries] = useState(null);
-  const [region,setRegions]=useState(null)
+  const [region, setRegions] = useState(null);
   const dispatch = useDispatch();
   let theme = useSelector((state) => state.countriesReducer.theme);
   let searchInput = useSelector((state) => state.countriesReducer.searchInput);
@@ -19,10 +19,10 @@ function Home() {
   let countryNames = countries?.map((country, index) => {
     return country.name;
   });
-  let regionNames=countries?.map((country,index)=>{
-    return country.region
-  })
-  let set=new Set(regionNames)
+  let regionNames = countries?.map((country, index) => {
+    return country.region;
+  });
+  let set = new Set(regionNames);
   useEffect(() => {
     async function getCountriesData() {
       const countriesdata = await getCountries(
