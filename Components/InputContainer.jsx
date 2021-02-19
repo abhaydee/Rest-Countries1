@@ -8,7 +8,6 @@ function InputContainer() {
         setInput(event.target.value)
     }
     useEffect(()=>{
-        console.log("empty",input)
             dispatch({type:"SEARCH_INPUT",payload:input})
     },[input])
     const theme=useSelector((state)=>state.countriesReducer.theme)

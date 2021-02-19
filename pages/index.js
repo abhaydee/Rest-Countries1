@@ -9,16 +9,20 @@ import styles from "../styles/Home.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 function Home() {
   const [countries, setCountries] = useState(null);
+  const [region,setRegions]=useState(null)
   const dispatch = useDispatch();
   let theme = useSelector((state) => state.countriesReducer.theme);
   let searchInput = useSelector((state) => state.countriesReducer.searchInput);
   let allCountries = useSelector(
     (state) => state.countriesReducer.allCountries
   );
-  console.log("the searchedInput", searchInput);
   let countryNames = countries?.map((country, index) => {
     return country.name;
   });
+  let regionNames=countries?.map((country,index)=>{
+    return country.region
+  })
+  let set=new Set(regionNames)
   useEffect(() => {
     async function getCountriesData() {
       const countriesdata = await getCountries(
@@ -32,7 +36,6 @@ function Home() {
   useEffect(() => {
     let filteredValues = [];
     filteredValues = countries?.filter(({ name }) => {
-      console.log("the name", name.toLowerCase(), searchInput);
       return name.toLowerCase().includes(searchInput);
     });
     if (filteredValues?.length > 0 && searchInput !== "") {
@@ -41,6 +44,7 @@ function Home() {
       setCountries(allCountries);
     }
   }, [searchInput]);
+
   return (
     <>
       <Head>
