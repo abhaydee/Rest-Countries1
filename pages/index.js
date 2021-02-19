@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Header from "../Components/Header";
 import InputContainer from "../Components/InputContainer";
@@ -6,10 +6,41 @@ import DropdownContainer from "../Components/DropdownContainer";
 import { getCountries } from "../services/apiservice";
 import Countries from "../Components/Countries";
 import styles from "../styles/Home.module.scss";
-import { useSelector } from "react-redux";
-function Home({ countries }) {
-  let theme=useSelector((state)=>state.countriesReducer.theme);
-  console.log("the theme index",theme)
+import { useSelector, useDispatch } from "react-redux";
+function Home() {
+  const [countries, setCountries] = useState(null);
+  const dispatch = useDispatch();
+  let theme = useSelector((state) => state.countriesReducer.theme);
+  let searchInput = useSelector((state) => state.countriesReducer.searchInput);
+  let allCountries = useSelector(
+    (state) => state.countriesReducer.allCountries
+  );
+  console.log("the searchedInput", searchInput);
+  let countryNames = countries?.map((country, index) => {
+    return country.name;
+  });
+  useEffect(() => {
+    async function getCountriesData() {
+      const countriesdata = await getCountries(
+        "https://restcountries.eu/rest/v2/all"
+      );
+      dispatch({ type: "ALL_COUNTRIES", payload: countriesdata });
+      setCountries(countriesdata);
+    }
+    getCountriesData();
+  }, []);
+  useEffect(() => {
+    let filteredValues = [];
+    filteredValues = countries?.filter(({ name }) => {
+      console.log("the name", name.toLowerCase(), searchInput);
+      return name.toLowerCase().includes(searchInput);
+    });
+    if (filteredValues?.length > 0 && searchInput !== "") {
+      setCountries(filteredValues);
+    } else {
+      setCountries(allCountries);
+    }
+  }, [searchInput]);
   return (
     <>
       <Head>
@@ -23,7 +54,7 @@ function Home({ countries }) {
         <Header />
         <div className="input-parent">
           <InputContainer />
-          <DropdownContainer />
+          <DropdownContainer countryNames={countryNames} />
         </div>
         <Countries countries={countries} />
       </div>
@@ -31,12 +62,4 @@ function Home({ countries }) {
   );
 }
 
-export async function getServerSideProps() {
-  const countries = await getCountries("https://restcountries.eu/rest/v2/all");
-  return {
-    props: {
-      countries,
-    },
-  };
-}
 export default Home;

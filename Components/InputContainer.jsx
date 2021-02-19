@@ -1,11 +1,17 @@
-import React,{useState} from 'react'
-import { useSelector } from 'react-redux'
+import React,{useState,useEffect} from 'react'
+import { useSelector,useDispatch } from 'react-redux'
 import styles from "../styles/input.module.scss"
 function InputContainer() {
+    const dispatch=useDispatch();
     const [input,setInput]=useState("")
     const handleChange=(event)=>{
         setInput(event.target.value)
     }
+    useEffect(()=>{
+        if(input!=="" && input.length>3){
+            dispatch({type:"SEARCH_INPUT",payload:input})
+        }
+    },[input])
     const theme=useSelector((state)=>state.countriesReducer.theme)
     return (
         <div>

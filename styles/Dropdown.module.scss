@@ -2,17 +2,16 @@
   width: 100%;
   padding: 12px 20px;
   display: inline-block;
+  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   &__dark{
-    background-color: #2b3945;
+    background-color: hsl(207, 26%, 17%);
     color: white;
-    border: none;
   }
   &__light{
     background-color: white;
     color: hsl(207, 26%, 17%);
-    border: 1px solid #ccc;
   }
 }
 
