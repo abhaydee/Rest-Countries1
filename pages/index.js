@@ -23,6 +23,7 @@ function Home() {
     return country.region;
   });
   let set = new Set(regionNames);
+  let regionArray=[...set]
   useEffect(() => {
     async function getCountriesData() {
       const countriesdata = await getCountries(
@@ -58,7 +59,7 @@ function Home() {
         <Header />
         <div className="input-parent">
           <InputContainer />
-          <DropdownContainer countryNames={countryNames} />
+          <DropdownContainer countryNames={regionArray} />
         </div>
         <Countries countries={countries} />
       </div>
