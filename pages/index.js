@@ -49,11 +49,11 @@ function Home() {
   useEffect(() => {
     if (optionFilter !== "Filter by region") {
       let regionValues = [];
-      regionValues = countries?.filter(({ region }) => {
+      regionValues = allCountries?.filter(({ region }) => {
         return region.includes(optionFilter);
       });
       console.log("the region values", regionValues);
-      // setCountries(regionValues);
+      setCountries(regionValues);
     }
   }, [optionFilter]);
   console.log("countries", countries);
