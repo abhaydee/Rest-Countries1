@@ -1,7 +1,8 @@
 export const initialState = {
   theme: true,
   searchInput:"",
-  allCountries:null
+  allCountries:null,
+  filter:""
 };
 
 export const countriesReducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ export const countriesReducer = (state = initialState, action) => {
       return {
         ...state,
         allCountries:action.payload
+      }
+    case "SET_FILTER":
+      return {
+        ...state,
+        filter:action.payload
       }
     default:
       return state;

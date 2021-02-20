@@ -16,14 +16,15 @@ function Home() {
   let allCountries = useSelector(
     (state) => state.countriesReducer.allCountries
   );
+  let optionFilter = useSelector((state) => state.countriesReducer.filter);
   let countryNames = countries?.map((country, index) => {
     return country.name;
   });
-  let regionNames = countries?.map((country, index) => {
+  let regionNames = allCountries?.map((country, index) => {
     return country.region;
   });
   let set = new Set(regionNames);
-  let regionArray=[...set]
+  let regionArray = [...set];
   useEffect(() => {
     async function getCountriesData() {
       const countriesdata = await getCountries(
@@ -45,7 +46,17 @@ function Home() {
       setCountries(allCountries);
     }
   }, [searchInput]);
-
+  useEffect(() => {
+    if (optionFilter !== "Filter by region") {
+      let regionValues = [];
+      regionValues = countries?.filter(({ region }) => {
+        return region.includes(optionFilter);
+      });
+      console.log("the region values", regionValues);
+      // setCountries(regionValues);
+    }
+  }, [optionFilter]);
+  console.log("countries", countries);
   return (
     <>
       <Head>
