@@ -67,7 +67,6 @@ function Home() {
           theme === true ? styles["theme-light"] : styles["theme-dark"]
         }
       >
-        <Header />
         <div className="input-parent">
           <InputContainer />
           <DropdownContainer countryNames={regionArray} />
