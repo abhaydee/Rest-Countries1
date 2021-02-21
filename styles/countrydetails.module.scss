@@ -43,12 +43,12 @@
   flex-direction: column;
   &__header{
     font-size: 2rem;
-    margin: 0;
+    margin:2rem 0 0 0;
   }
   &__flag {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
   &__button {
     border: none;
@@ -78,6 +78,7 @@
     flex-direction: row;
     &__flag{
       width: 50%;
+      height: 25rem;
       margin-left: 2rem;
     }
     &__desktop{
@@ -85,6 +86,9 @@
     }
     &__content{
       display: flex;
+    }
+    &__native{
+      margin-right: 2rem;
     }
   }
 }

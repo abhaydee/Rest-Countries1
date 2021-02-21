@@ -50,7 +50,7 @@ function CountryDetails({ countryData }) {
             </h5>
           </div>
           <div className={styles["details-container__content"]}>
-            <div>
+            <div className={styles["details-container__native"]}>
               <p>Native Name:{countryData[0].nativeName}</p>
               <p>Population:{countryData[0].population}</p>
               <p>Region:{countryData[0].region}</p>
