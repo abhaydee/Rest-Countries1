@@ -1,5 +1,14 @@
+.details__light {
+  background-color: whitesmoke;
+  color: black;
+  padding-top: 4rem;
+}
+.details__dark {
+  background-color: hsl(207, 26%, 17%);
+  color: white;
+  padding-top: 4rem;
+}
 .button {
-  margin-top: 4rem;
   margin-left: 2rem;
   font-family: "NunitoSans Regular";
   font-size: 0.85rem;
@@ -14,6 +23,14 @@
   &__image {
     margin-right: 0.5rem;
   }
+  &__dark {
+    background-color: #2b3945;
+    color: white;
+  }
+  &__light {
+    background-color: white;
+    color: hsl(207, 26%, 17%);
+  }
 }
 .details-container {
   margin-top: 4rem;
@@ -26,7 +43,7 @@
     width: 100%;
     height: 100%;
   }
-  &__button{
+  &__button {
     border: none;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -34,9 +51,16 @@
     padding: 1rem;
     display: inline-flex;
     justify-content: center;
-    margin:0.5rem 1rem 0.5rem 0rem
+    margin: 0.5rem 1rem 0.5rem 0rem;
+    &__light{
+      background-color:whitesmoke;
+      color: black;
+    }
+    &__dark{
+      background-color: #2b3945 ;
+      color:white;
+    }
   }
-
 }
 @media screen and (min-width: 768px) {
   .button {

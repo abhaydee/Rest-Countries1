@@ -5,20 +5,20 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  &__dark{
+  &__dark {
     background-color: hsl(207, 26%, 17%);
     color: white;
   }
-  &__light{
+  &__light {
     background-color: white;
     color: hsl(207, 26%, 17%);
   }
 }
 
-@media screen and (min-width:768px){
-    .country{
-        width: 15rem;
-        margin-right: 4rem;
-        margin-top: 2rem;
-    }
+@media screen and (min-width: 768px) {
+  .country {
+    width: 15rem;
+    margin-right: 4rem;
+    margin-top: 2rem;
+  }
 }

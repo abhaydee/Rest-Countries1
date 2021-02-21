@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "../styles/Dropdown.module.scss";
 function DropdownContainer({ countryNames }) {
   const [optionValue, setOptionValue] = useState(null);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const theme = useSelector((state) => state.countriesReducer.theme);
   countryNames = ["Filter by region", ...countryNames];
   const handleOption = (event) => {
     setOptionValue(event.target.value);
-    dispatch({type:"SET_FILTER",payload:event.target.value})
+    dispatch({ type: "SET_FILTER", payload: event.target.value });
   };
   return (
     <div>

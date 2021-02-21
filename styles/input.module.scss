@@ -4,22 +4,22 @@
   display: inline-block;
   border-radius: 4px;
   box-sizing: border-box;
-  &__light{
+  &__light {
     background-color: white;
     color: black;
     border: 1px solid #ccc;
   }
-  &__dark{
+  &__dark {
     background-color: hsl(209, 23%, 22%);
     color: white;
     border: none;
   }
 }
 
-@media screen and (min-width:768px){
-    .input{
-        width: 20rem;
-        margin-left: 4rem;
-        margin-top: 2rem;
-    }
+@media screen and (min-width: 768px) {
+  .input {
+    width: 20rem;
+    margin-left: 4rem;
+    margin-top: 2rem;
+  }
 }

@@ -3,8 +3,10 @@ import { useRouter } from "next/router";
 import { getCountries } from "../services/apiservice";
 import IconBack from "../images/left-arrow.svg";
 import styles from "../styles/countrydetails.module.scss";
+import { useSelector } from "react-redux";
 function CountryDetails({ countryData }) {
   const router = useRouter();
+  const theme = useSelector((state) => state.countriesReducer.theme);
   console.log("the data", countryData[0].borders);
   const handleClick = () => {
     router.push("/");
@@ -16,8 +18,17 @@ function CountryDetails({ countryData }) {
     return item.name;
   });
   return (
-    <div>
-      <button className={styles["button"]} onClick={handleClick}>
+    <div
+      className={`${
+        theme === true ? styles["details__light"] : styles["details__dark"]
+      }`}
+    >
+      <button
+        className={`${styles["button"]} ${
+          theme === true ? styles["button__light"] : styles["button__dark"]
+        }`}
+        onClick={handleClick}
+      >
         <img
           src={IconBack}
           width={20}
@@ -49,10 +60,17 @@ function CountryDetails({ countryData }) {
         </div>
         <div>
           <p>Border Countries:</p>
-          {countryData[0]?.borders?.map((border,index)=>{
+          {countryData[0]?.borders?.map((border, index) => {
             return (
-              <button key={index} className={styles["details-container__button"]}>{border}</button>
-            )
+              <button
+                key={index}
+                className={`${styles["details-container__button"]} ${
+                  theme === true ? styles["details-container__button__light"] : styles["details-container__button__dark"]
+                }`}
+              >
+                {border}
+              </button>
+            );
           })}
         </div>
       </div>
