@@ -12,6 +12,7 @@ function CountryDetails({countryData}) {
     return (
         <div>
             <button className={styles["button"]} onClick={handleClick}><img src={IconBack} width={20} height={20} className={styles["button__image"]}/> Back</button>
+            
         </div>
     )
 }
