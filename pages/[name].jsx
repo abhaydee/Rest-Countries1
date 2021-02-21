@@ -5,10 +5,16 @@ import IconBack from "../images/left-arrow.svg";
 import styles from "../styles/countrydetails.module.scss";
 function CountryDetails({ countryData }) {
   const router = useRouter();
-  console.log("the data", countryData);
+  console.log("the data", countryData[0].borders);
   const handleClick = () => {
     router.push("/");
   };
+  let languages = countryData[0]?.languages?.map((item) => {
+    return item.name;
+  });
+  let currencies = countryData[0]?.currencies?.map((item) => {
+    return item.name;
+  });
   return (
     <div>
       <button className={styles["button"]} onClick={handleClick}>
@@ -38,8 +44,16 @@ function CountryDetails({ countryData }) {
         </div>
         <div className={styles["details-container__secondary"]}>
           <p>Top Level Domain:{countryData[0].topLevelDomain}</p>
-          {/* <p>Currencies:{countryData[0].currencies}</p> */}
-          {/* <p>Languages:{countryData[0].languages.toString()}</p> */}
+          <p>Currencies:{currencies.toString()}</p>
+          <p>Languages:{languages.toString()}</p>
+        </div>
+        <div>
+          <p>Border Countries:</p>
+          {countryData[0]?.borders?.map((border,index)=>{
+            return (
+              <button key={index} className={styles["details-container__button"]}>{border}</button>
+            )
+          })}
         </div>
       </div>
     </div>
