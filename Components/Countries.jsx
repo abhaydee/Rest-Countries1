@@ -1,16 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {useRouter} from "next/router"
+import { useRouter } from "next/router";
 import styles from "../styles/countries.module.scss";
 function Countries({ countries }) {
-  const router=useRouter();
-  const handleClick=(name)=>{
-    router.push(`/${name}`)
-  }
+  const router = useRouter();
+  const handleClick = (name) => {
+    router.push(`/${name}`);
+  };
   return (
-    <div className={`${styles["countries"]}`} >
+    <div className={`${styles["countries"]}`}>
       {countries?.map((country, index) => (
-        <div key={index} className={styles["countries__card"]} onClick={()=>handleClick(country.name)}>
+        <div
+          key={index}
+          className={styles["countries__card"]}
+          onClick={() => handleClick(country.name)}
+        >
           <img
             alt="countries"
             className={styles["countries__image"]}
