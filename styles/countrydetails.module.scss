@@ -2,11 +2,13 @@
   background-color: whitesmoke;
   color: black;
   padding-top: 4rem;
+  height: 100rem;
 }
 .details__dark {
   background-color: hsl(207, 26%, 17%);
   color: white;
   padding-top: 4rem;
+  height: 100rem;
 }
 .button {
   margin-left: 2rem;
@@ -39,9 +41,14 @@
   font-family: "NunitoSans Regular";
   display: flex;
   flex-direction: column;
+  &__header{
+    font-size: 2rem;
+    margin: 0;
+  }
   &__flag {
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
   &__button {
     border: none;
@@ -69,5 +76,15 @@
   }
   .details-container {
     flex-direction: row;
+    &__flag{
+      width: 50%;
+      margin-left: 2rem;
+    }
+    &__desktop{
+      margin-left: 4rem;
+    }
+    &__content{
+      display: flex;
+    }
   }
 }

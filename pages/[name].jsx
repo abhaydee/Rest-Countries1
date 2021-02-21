@@ -43,35 +43,43 @@ function CountryDetails({ countryData }) {
           src={countryData[0].flag}
           alt="flag-icon"
         />
-        <div className={styles["details-container__primary"]}>
-          <h5 className={styles["details-container__header"]}>
-            {countryData[0].name}
-          </h5>
-          <p>Native Name:{countryData[0].nativeName}</p>
-          <p>Population:{countryData[0].population}</p>
-          <p>Region:{countryData[0].region}</p>
-          <p>Sub Region{countryData[0].subregion}</p>
-          <p>Capital:{countryData[0].capital}</p>
-        </div>
-        <div className={styles["details-container__secondary"]}>
-          <p>Top Level Domain:{countryData[0].topLevelDomain}</p>
-          <p>Currencies:{currencies.toString()}</p>
-          <p>Languages:{languages.toString()}</p>
-        </div>
-        <div>
-          <p>Border Countries:</p>
-          {countryData[0]?.borders?.map((border, index) => {
-            return (
-              <button
-                key={index}
-                className={`${styles["details-container__button"]} ${
-                  theme === true ? styles["details-container__button__light"] : styles["details-container__button__dark"]
-                }`}
-              >
-                {border}
-              </button>
-            );
-          })}
+        <div className={styles["details-container__desktop"]}>
+          <div className={styles["details-container__primary"]}>
+            <h5 className={styles["details-container__header"]}>
+              {countryData[0].name}
+            </h5>
+          </div>
+          <div className={styles["details-container__content"]}>
+            <div>
+              <p>Native Name:{countryData[0].nativeName}</p>
+              <p>Population:{countryData[0].population}</p>
+              <p>Region:{countryData[0].region}</p>
+              <p>Sub Region{countryData[0].subregion}</p>
+              <p>Capital:{countryData[0].capital}</p>
+            </div>
+            <div>
+              <p>Top Level Domain:{countryData[0].topLevelDomain}</p>
+              <p>Currencies:{currencies.toString()}</p>
+              <p>Languages:{languages.toString()}</p>
+            </div>
+          </div>
+          <div>
+            <p>Border Countries:</p>
+            {countryData[0]?.borders?.map((border, index) => {
+              return (
+                <button
+                  key={index}
+                  className={`${styles["details-container__button"]} ${
+                    theme === true
+                      ? styles["details-container__button__light"]
+                      : styles["details-container__button__dark"]
+                  }`}
+                >
+                  {border}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
