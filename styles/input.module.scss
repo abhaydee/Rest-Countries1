@@ -1,9 +1,13 @@
 .input {
   width: 100%;
   padding: 12px 20px;
+  margin-bottom: 1rem;
   display: inline-block;
   border-radius: 4px;
   box-sizing: border-box;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  outline: none;
   &__light {
     background-color: white;
     color: black;

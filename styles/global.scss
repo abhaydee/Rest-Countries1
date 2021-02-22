@@ -6,6 +6,9 @@ body{
     flex-direction: column;
     justify-content: center;
     max-width: 80rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
 }
 
 @media screen and (min-width:768px){
@@ -14,7 +17,9 @@ body{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        font-family: "NunitoSans Regular"
+        font-family: "NunitoSans Regular";
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 @font-face {
