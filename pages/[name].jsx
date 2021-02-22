@@ -34,6 +34,7 @@ function CountryDetails({ countryData }) {
           width={20}
           height={20}
           className={styles["button__image"]}
+          alt="button-image"
         />{" "}
         Back
       </button>

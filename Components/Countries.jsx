@@ -19,6 +19,7 @@ function Countries({ countries }) {
             alt="countries"
             className={styles["countries__image"]}
             src={country.flag}
+            alt="country-flag"
           />
           <div className={styles["countries__container"]}>
             <h3>
