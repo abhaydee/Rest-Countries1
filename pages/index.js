@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
-import Header from "../Components/Header";
-import InputContainer from "../Components/InputContainer";
-import DropdownContainer from "../Components/DropdownContainer";
+const InputContainer = dynamic(() => import("../Components/InputContainer"));
+const DropdownContainer = dynamic(() =>
+  import("../Components/DropdownContainer")
+);
 import { getCountries } from "../services/apiservice";
-import Countries from "../Components/Countries";
+const Countries = dynamic(() => import("../Components/Countries"));
 import styles from "../styles/Home.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 function Home() {
@@ -52,11 +54,9 @@ function Home() {
       regionValues = allCountries?.filter(({ region }) => {
         return region.includes(optionFilter);
       });
-      console.log("the region values", regionValues);
       setCountries(regionValues);
     }
   }, [optionFilter]);
-  console.log("countries", countries);
   return (
     <>
       <Head>

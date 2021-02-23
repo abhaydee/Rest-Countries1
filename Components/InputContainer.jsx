@@ -21,6 +21,7 @@ function InputContainer() {
         type="text"
         onChange={handleChange}
         value={input}
+        label="country"
         placeholder="Enter the country"
       />
     </div>

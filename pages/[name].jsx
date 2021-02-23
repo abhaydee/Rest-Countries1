@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 function CountryDetails({ countryData }) {
   const router = useRouter();
   const theme = useSelector((state) => state.countriesReducer.theme);
-  console.log("the data", countryData[0].borders);
   const handleClick = () => {
     router.push("/");
   };
