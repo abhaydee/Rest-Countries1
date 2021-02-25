@@ -9,9 +9,11 @@ import { getCountries } from "../services/apiservice";
 const Countries = dynamic(() => import("../Components/Countries"));
 import styles from "../styles/Home.module.scss";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "../Components/Loader";
 function Home() {
   const [countries, setCountries] = useState(null);
   const [region, setRegions] = useState(null);
+  const [loader, setLoader] = useState(null);
   const dispatch = useDispatch();
   let theme = useSelector((state) => state.countriesReducer.theme);
   let searchInput = useSelector((state) => state.countriesReducer.searchInput);
@@ -28,12 +30,14 @@ function Home() {
   let set = new Set(regionNames);
   let regionArray = [...set];
   useEffect(() => {
+    setLoader(true);
     async function getCountriesData() {
       const countriesdata = await getCountries(
         "https://restcountries.eu/rest/v2/all"
       );
       dispatch({ type: "ALL_COUNTRIES", payload: countriesdata });
       setCountries(countriesdata);
+      setLoader(false);
     }
     getCountriesData();
   }, []);
@@ -58,7 +62,7 @@ function Home() {
     }
   }, [optionFilter]);
   return (
-    <>
+    <div>
       <Head>
         <title>Rest-Countries</title>
       </Head>
@@ -71,9 +75,9 @@ function Home() {
           <InputContainer />
           <DropdownContainer countryNames={regionArray} />
         </div>
-        <Countries countries={countries} />
+        {loader === true ? <Loader /> : <Countries countries={countries} />}
       </div>
-    </>
+    </div>
   );
 }
 
