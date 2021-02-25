@@ -40,27 +40,27 @@ function CountryDetails({ countryData }) {
       <div className={styles["details-container"]}>
         <img
           className={styles["details-container__flag"]}
-          src={countryData[0].flag}
+          src={countryData[0]?.flag}
           alt="flag-icon"
         />
         <div className={styles["details-container__desktop"]}>
           <div className={styles["details-container__primary"]}>
             <h5 className={styles["details-container__header"]}>
-              {countryData[0].name}
+              {countryData[0]?.name}
             </h5>
           </div>
           <div className={styles["details-container__content"]}>
             <div className={styles["details-container__native"]}>
-              <p>Native Name:{countryData[0].nativeName}</p>
-              <p>Population:{countryData[0].population}</p>
-              <p>Region:{countryData[0].region}</p>
-              <p>Sub Region{countryData[0].subregion}</p>
-              <p>Capital:{countryData[0].capital}</p>
+              <p>Native Name:{countryData[0]?.nativeName}</p>
+              <p>Population:{countryData[0]?.population}</p>
+              <p>Region:{countryData[0]?.region}</p>
+              <p>Sub Region{countryData[0]?.subregion}</p>
+              <p>Capital:{countryData[0]?.capital}</p>
             </div>
             <div>
-              <p>Top Level Domain:{countryData[0].topLevelDomain}</p>
-              <p>Currencies:{currencies.toString()}</p>
-              <p>Languages:{languages.toString()}</p>
+              <p>Top Level Domain:{countryData[0]?.topLevelDomain}</p>
+              <p>Currencies:{currencies?.toString()}</p>
+              <p>Languages:{languages?.toString()}</p>
             </div>
           </div>
           <div>
@@ -88,7 +88,7 @@ function CountryDetails({ countryData }) {
 
 export async function getServerSideProps({ query }) {
   const countryData = await getCountries(
-    `https://restcountries.eu/rest/v2/name/${query.name}`
+    `https://restcountries.eu/rest/v2/name/${JSON.stringify(query.name)}`
   );
   return {
     props: {

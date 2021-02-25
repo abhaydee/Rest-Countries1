@@ -61,6 +61,7 @@ function Home() {
       setCountries(regionValues);
     }
   }, [optionFilter]);
+  console.log("countries",countries)
   return (
     <div>
       <Head>

@@ -5,7 +5,11 @@ import styles from "../styles/countries.module.scss";
 function Countries({ countries }) {
   const router = useRouter();
   const handleClick = (name) => {
-    router.push(`/${name}`);
+    if (name === "Åland Islands") {
+      router.push("Aland");
+    } else {
+      router.push(`/${name}`);
+    }
   };
   return (
     <div className={`${styles["countries"]}`}>
