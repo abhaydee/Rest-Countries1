@@ -5,7 +5,8 @@ import styles from "../styles/countries.module.scss";
 function Countries({ countries }) {
   const router = useRouter();
   const handleClick = (name) => {
-    if (name === "Åland Islands") {
+    console.log("name",name)
+    if (name.includes("Åland")) {
       router.push("Aland");
     } else {
       router.push(`/${name}`);
