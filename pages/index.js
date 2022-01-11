@@ -33,7 +33,7 @@ function Home() {
     setLoader(true);
     async function getCountriesData() {
       const countriesdata = await getCountries(
-        "https://restcountries.eu/rest/v2/all"
+        "https://restcountries.com/v2/all"
       );
       dispatch({ type: "ALL_COUNTRIES", payload: countriesdata });
       setCountries(countriesdata);

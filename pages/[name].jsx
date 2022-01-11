@@ -88,7 +88,7 @@ function CountryDetails({ countryData }) {
 
 export async function getServerSideProps({ query }) {
   const countryData = await getCountries(
-    `https://restcountries.eu/rest/v2/name/${query.name}`
+    `https://restcountries.com/v2/name/${query.name}`
   );
   return {
     props: {
